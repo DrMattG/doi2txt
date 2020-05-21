@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 
 #Starting to make Neals code function/functions
@@ -51,6 +52,18 @@ test <- readRDS("data/test.RDS")
 # str(url)
 
 
+=======
+# ####################### #
+# Test script from NRH ####
+# ####################### #
+
+setwd("~/OneDrive - SEI/ESHackathon/4.Remote 2020/doi2txt")
+dois<-read.csv(file.choose(),header=TRUE)
+attach(dois)
+names(dois)
+str(dois)
+str(url)
+>>>>>>> upstream/master
 
 #save an HTML from a URL
 #url<-dois
@@ -215,3 +228,7 @@ doinum<-sub("https://doi.org/","",doi)
 pdfurl<-sub(" ","",paste("https://environmentalevidencejournal.biomedcentral.com/track/pdf/",doinum))
 destfile<-sub("/","_",doinum)
 download.file(pdfurl,paste(destfile,".pdf"))
+
+
+# ####################### #
+

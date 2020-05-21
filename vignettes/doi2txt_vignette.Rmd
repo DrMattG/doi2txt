@@ -45,7 +45,7 @@ library(doi2txt)
 dois <- c("10.1590/S1984-46702014000400006",
           "10.1371/journal.pone.0105397",
           "10.1016/j.cja.2014.04.019",
-          "doi.org/10.24843/EJA.2019.v26.i01.p07",
+          "10.24843/EJA.2019.v26.i01.p07",
           "10.11609/JoTT.o3999.7870-8",
           "10.3389/fpsyg.2013.00447",
           "10.5751/ES-02760-140128",
@@ -89,9 +89,12 @@ articles <- x
 
 
 # now for extract_section
-
 text <- articles
-start <- find_section("methods", text)
+section="methods"
+# I couldnt run this without adding in section = "methods" "Error in which(names(sections) == section) : object 'section' not found"
+start <- find_section(section, text)
+
+#start <- find_section(section, text)
 
 next_section <- names(sections)[(which(names(doi2txt::sections) == section) + 1)]
 
