@@ -14,16 +14,19 @@ read_html <- function(doi = NULL,
 
 doi2html <- function(doi = NULL, url = NULL) {
   if (is.null(doi) & is.null(url)) {
-    stop(print("Either a doi or a url must be supplied."))
+    warning(print("Either a doi or a url must be supplied; returning NA."))
+    return(NA)
+  }else{
+    if (is.null(url)) {
+      url <- get_url(doi)
+    }
+    x <- try(parse_html(url = url))
+    if (class(x) != "character") {
+      x <- NA
+    }
+    return(x)
   }
-  if (is.null(url)) {
-    url <- get_url(doi)
-  }
-  x <- try(parse_html(url = url))
-  if (class(x) != "character") {
-    x <- NA
-  }
-  return(x)
+
 }
 
 # Functions for looking up doi or scraping html from bibliographic data ####
@@ -39,3 +42,4 @@ search_lens <- function(title) {
 }
 
 # Subfunctions that address various common scraping issues encountered ####
+
