@@ -15,9 +15,10 @@ all_countries <- str_c(unique(world.cities$country.etc), collapse = "|")
 raw <- gsub("[[:punct:]\n]","",section)
 
 CountryList_raw1<-sapply(str_extract_all(raw, all_countries), toString)
-CountryList_raw<-gsub('\\b\\w{1,4}\\b','',CountryList_raw1)
+#CountryList_raw<-gsub('\\b\\w{1,4}\\b','',CountryList_raw1)
 
-as_tibble(CountryList_raw)
+#as_tibble(CountryList_raw)
+as_tibble(CountryList_raw1)
 }
 
 
